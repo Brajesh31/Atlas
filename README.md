@@ -126,23 +126,27 @@ See [HTTP route reference](docs/routes.md).
 
 Atlas is a single-process Node.js web application. Express handles HTTP middleware and routing, EJS renders HTML on the server, and Mongoose provides MongoDB model/connection behavior.
 
+**Current request path**
+
 ```mermaid
 flowchart TD
-    B[Browser] -->|HTTP request| W[bin/www]
-    W --> S[Node HTTP server]
-    S --> A[app.js Express app]
-    A --> MW[Middleware stack]
-    MW --> R{Mounted route}
-    R --> IR[routes/index.js]
-    R --> UR[/users mount]
-    IR --> H[Route handler]
-    H --> M[Mongoose model]
-    M --> DB[(MongoDB)]
-    H --> V[EJS view]
-    V --> RESP[HTML response]
+    B["Browser"] -->|"HTTP request"| W["bin/www"]
+    W --> S["Node HTTP server"]
+    S --> A["app.js Express app"]
+    A --> MW["Middleware stack"]
+    MW --> R{"Mounted route"}
+    R --> IR["routes/index.js"]
+    R --> UR["/users mount"]
+    IR --> H["Route handler"]
+    H --> M["Mongoose model"]
+    M --> DB[("MongoDB")]
+    H --> V["EJS view"]
+    V --> RESP["HTML response"]
     RESP --> B
-    A --> PUB[public static assets]
+    A --> PUB["public static assets"]
 ```
+
+> **Diagram note:** this shows the intended high-level wiring visible in the Express setup. The `/users` mount is currently misconfigured because `routes/users.js` exports a Mongoose model rather than an Express router. It is shown to make the configured mount visible, not to imply that it is a functioning route module.
 
 ### Main responsibilities
 
@@ -164,15 +168,15 @@ See [Architecture](docs/architecture.md), [System design](docs/system-design.md)
 
 ```mermaid
 flowchart TD
-    A[Visitor opens /sign] --> B[GET /sign]
-    B --> C[Render signUp.ejs]
-    C --> D[Visitor submits registration form]
-    D --> E[POST /sign]
-    E --> F[Read username email password]
-    F --> G[Mongoose insertMany]
-    G --> H{Insert succeeds?}
-    H -->|Yes| I[Render home.ejs]
-    H -->|No| J[Unhandled/propagated async error behavior]
+    A["Visitor opens /sign"] --> B["GET /sign"]
+    B --> C["Render signUp.ejs"]
+    C --> D["Visitor submits registration form"]
+    D --> E["POST /sign"]
+    E --> F["Read username, email, password"]
+    F --> G["Mongoose insertMany"]
+    G --> H{"Insert succeeds?"}
+    H -->|"Yes"| I["Render home.ejs"]
+    H -->|"No"| J["Error handling path"]
 ```
 
 The form and handler currently do not implement password hashing, unique-account checks, server-side input validation, or an authenticated session.
@@ -181,18 +185,18 @@ The form and handler currently do not implement password hashing, unique-account
 
 ```mermaid
 flowchart TD
-    A[Visitor opens /] --> B[GET /]
-    B --> C[Render index.ejs]
-    C --> D[Submit username and password]
-    D --> E[POST /]
-    E --> F[Find account by name]
-    F --> G{Account found?}
-    G -->|No| H[Catch path returns Wrong details]
-    G -->|Yes| I[Compare plaintext password]
-    I --> J{Passwords equal?}
-    J -->|Yes| K[Render Home view name]
-    J -->|No| L[Send Wrong Password]
-    K --> M[No session or authorization boundary]
+    A["Visitor opens /"] --> B["GET /"]
+    B --> C["Render index.ejs"]
+    C --> D["Submit username and password"]
+    D --> E["POST /"]
+    E --> F["Find account by name"]
+    F --> G{"Account found?"}
+    G -->|"No"| H["Return wrong-details response"]
+    G -->|"Yes"| I["Compare plaintext password"]
+    I --> J{"Passwords equal?"}
+    J -->|"Yes"| K["Render Home view name"]
+    J -->|"No"| L["Send wrong-password response"]
+    K --> M["No session or authorization boundary"]
 ```
 
 The current code renders `Home` with an uppercase view name on the successful login branch, while registration renders lowercase `home`. The filesystem contains `views/home.ejs`, so the login success path should be tested and corrected in a separate application fix.
@@ -201,19 +205,19 @@ The current code renders `Home` with an uppercase view name on the successful lo
 
 ```mermaid
 flowchart TD
-    A[Registration request] --> B[Validate and normalize input]
-    B --> C{Valid and allowed?}
-    C -->|No| D[Return field errors]
-    C -->|Yes| E[Hash password with suitable algorithm]
-    E --> F[Persist account with unique index]
-    F --> G[Return safe confirmation]
-    H[Login request] --> I[Rate limit and validate]
-    I --> J[Find account]
-    J --> K[Verify password hash]
-    K --> L{Verified?}
-    L -->|No| M[Generic failure response]
-    L -->|Yes| N[Create secure session]
-    N --> O[Authorize protected routes]
+    A["Registration request"] --> B["Validate and normalize input"]
+    B --> C{"Valid and allowed?"}
+    C -->|"No"| D["Return field errors"]
+    C -->|"Yes"| E["Hash password with suitable algorithm"]
+    E --> F["Persist account with unique index"]
+    F --> G["Return safe confirmation"]
+    H["Login request"] --> I["Rate limit and validate"]
+    I --> J["Find account"]
+    J --> K["Verify password hash"]
+    K --> L{"Verified?"}
+    L -->|"No"| M["Generic failure response"]
+    L -->|"Yes"| N["Create secure session"]
+    N --> O["Authorize protected routes"]
 ```
 
 This is a target design only. It is not implemented in the repository.
