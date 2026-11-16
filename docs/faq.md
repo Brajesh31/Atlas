@@ -1,21 +1,31 @@
-# FAQ
+# ❓ Frequently asked questions
 
 ## Is Atlas production-ready?
+No. It has plaintext password handling, a committed MongoDB credential, no authenticated session, and an unprotected home route.
 
-No. It is an educational prototype with plaintext password handling, no durable authentication session, and source-level database configuration.
+## Which technologies does it use?
+Node.js, Express, EJS, Mongoose, MongoDB, Morgan, cookie-parser, and standard browser CSS/JavaScript.
 
-## Which database does it use?
+## Is it a REST API?
+No. The current routes render server-side EJS pages and accept HTML form submissions.
 
-MongoDB accessed through Mongoose.
+## What is the default port?
+3000. The server reads PORT from the process environment.
 
-## What port does it use?
+## Does .env.example configure MongoDB?
+No. The file documents a MONGODB_URI variable, but current routes/users.js uses a literal URI. The app does not load dotenv.
 
-`3000` by default. Set `PORT` to override it.
+## Are passwords hashed?
+No. Current code stores and compares plaintext values. Do not use real passwords.
 
-## Is there a REST API?
+## Is /home protected?
+No. It can be requested directly without login.
 
-No. The current endpoints render EJS pages and process HTML form submissions.
+## Why might successful login fail to render?
+The handler renders Home while the file present in views is home.ejs. View resolution is case-sensitive on many platforms.
 
-## Where should I report a vulnerability?
+## Are automated tests configured?
+No test script or test suite is currently declared.
 
-Use the private process in [SECURITY.md](../SECURITY.md), not a public issue.
+## Where do I report a vulnerability?
+Use private reporting described in SECURITY.md. Do not post credentials or exploit details publicly.

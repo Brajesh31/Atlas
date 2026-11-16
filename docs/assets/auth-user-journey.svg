@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="440" viewBox="0 0 1000 440" role="img" aria-labelledby="t d">
+<title id="t">Atlas authentication user journey</title><desc id="d">Current visitor journey from login or sign-up forms to route handlers and MongoDB. A warning highlights plaintext password storage and missing sessions.</desc>
+<rect width="1000" height="440" rx="24" fill="#0b1220"/>
+<text x="45" y="52" fill="#f8fafc" font-family="Arial" font-size="26" font-weight="700">ATLAS • FORM SUBMISSION JOURNEY</text>
+<g font-family="Arial" text-anchor="middle">
+<rect x="48" y="128" width="180" height="95" rx="14" fill="#1e3a8a" stroke="#93c5fd"/><text x="138" y="166" fill="white" font-size="19" font-weight="700">Visitor</text><text x="138" y="191" fill="#dbeafe" font-size="14">Browser</text>
+<rect x="290" y="74" width="190" height="92" rx="14" fill="#115e59" stroke="#5eead4"/><text x="385" y="111" fill="white" font-size="18" font-weight="700">Login form</text><text x="385" y="136" fill="#ccfbf1" font-size="14">GET / · POST /</text>
+<rect x="290" y="248" width="190" height="92" rx="14" fill="#115e59" stroke="#5eead4"/><text x="385" y="285" fill="white" font-size="18" font-weight="700">Sign-up form</text><text x="385" y="310" fill="#ccfbf1" font-size="14">GET /sign · POST /sign</text>
+<rect x="550" y="160" width="180" height="100" rx="14" fill="#164e63" stroke="#67e8f9"/><text x="640" y="199" fill="white" font-size="18" font-weight="700">Express route</text><text x="640" y="225" fill="#cffafe" font-size="14">routes/index.js</text>
+<rect x="800" y="160" width="155" height="100" rx="14" fill="#854d0e" stroke="#fde68a"/><text x="877" y="199" fill="white" font-size="18" font-weight="700">MongoDB</text><text x="877" y="225" fill="#fef3c7" font-size="14">Mongoose</text>
+</g>
+<g stroke="#5eead4" fill="none" stroke-width="3"><path d="M228 158 290 120"/><path d="M228 190 290 294"/><path d="M480 120 550 190"/><path d="M480 294 550 230"/><path d="M730 210H800"/></g>
+<rect x="48" y="366" width="907" height="43" rx="10" fill="#7f1d1d" stroke="#fca5a5"/><text x="501" y="393" text-anchor="middle" fill="#fee2e2" font-family="Arial" font-size="15" font-weight="700">CURRENT RISK: plaintext passwords, no authenticated session, and no route authorization.</text>
+</svg>

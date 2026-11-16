@@ -1,0 +1,52 @@
+name: Atlas validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check app.js
+          node --check bin/www
+          node --check routes/index.js
+          node --check routes/users.js
+          node --check public/javascripts/script.js
+
+      - name: Validate documentation links and local images
+        run: python scripts/check_docs.py
+
+      - name: Validate SVG XML
+        run: python scripts/check_svg.py
+
+      - name: Smoke-check EJS templates
+        run: |
+          node - <<'NODE'
+          const ejs = require('ejs');
+          const fs = require('fs');
+          for (const file of ['views/index.ejs', 'views/signUp.ejs', 'views/home.ejs']) {
+            ejs.compile(fs.readFileSync(file, 'utf8'), {filename: file});
+            console.log('Template syntax OK:', file);
+          }
+          NODE

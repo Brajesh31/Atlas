@@ -1,16 +1,26 @@
-## Summary
+## 🧭 Summary
+Describe the change and the problem it solves.
 
-Describe the change and why it is needed.
+## 🔍 Scope
+- [ ] Server startup or middleware
+- [ ] Routes and form contracts
+- [ ] EJS views or static assets
+- [ ] Mongoose/database behavior
+- [ ] Security/authentication
+- [ ] Documentation or diagrams
+- [ ] CI/tooling
 
-## Verification
+## 🔐 Security and privacy
+- [ ] No secrets, passwords, cookies, or real account data added.
+- [ ] Password/session/database implications reviewed.
+- [ ] External asset rights checked.
+- [ ] Security-sensitive changes include tests.
 
-- [ ] `npm install` completed successfully
-- [ ] `npm start` was exercised locally
-- [ ] Affected routes and views were manually tested
-- [ ] Tests or checks were added/updated where practical
+## 🧪 Validation
+List exact commands and manual route checks performed.
 
-## Security and data
+## 🖼️ Screenshots
+Add genuine browser captures for UI changes. Do not label diagrams/mockups as screenshots.
 
-- [ ] No credentials, tokens, or personal data are included
-- [ ] Authentication and database changes were reviewed
-- [ ] Documentation was updated if behavior or configuration changed
+## ⚠️ Known limitations
+List remaining gaps, failures, and follow-up work.

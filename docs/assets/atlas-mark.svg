@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="240" viewBox="0 0 480 240" role="img" aria-labelledby="title desc">
+<title id="title">Atlas project mark</title><desc id="desc">A stylized compass over layered map contours with the Atlas name.</desc>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f766e"/><stop offset="1" stop-color="#1e3a8a"/></linearGradient></defs>
+<rect x="8" y="8" width="464" height="224" rx="28" fill="#0b1220"/>
+<path d="M55 176c30-38 55-20 80-58s55-42 80-23 48 10 68-26 46-35 73-17" fill="none" stroke="#2dd4bf" stroke-width="3" opacity=".48"/>
+<path d="M52 198c36-32 62-7 91-48s60-34 80-17 46 13 72-23 49-23 82-9" fill="none" stroke="#60a5fa" stroke-width="2" opacity=".4"/>
+<circle cx="125" cy="104" r="53" fill="url(#g)" stroke="#a7f3d0" stroke-width="2"/>
+<circle cx="125" cy="104" r="38" fill="none" stroke="#d1fae5" opacity=".6"/>
+<path d="M125 56 139 104 125 152 111 104Z" fill="#f8fafc"/>
+<path d="m125 56 14 48-14-10Z" fill="#fb923c"/>
+<circle cx="125" cy="104" r="6" fill="#0b1220" stroke="#fff" stroke-width="2"/>
+<text x="205" y="112" fill="#f8fafc" font-family="Inter,Arial,sans-serif" font-size="48" font-weight="800" letter-spacing="1">ATLAS</text>
+<text x="208" y="145" fill="#99f6e4" font-family="Inter,Arial,sans-serif" font-size="14" letter-spacing="3">EXPRESS • EJS • MONGODB</text>
+</svg>

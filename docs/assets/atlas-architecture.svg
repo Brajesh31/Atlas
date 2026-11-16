@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560" role="img" aria-labelledby="t d">
+<title id="t">Atlas architecture overview</title><desc id="d">Browser connects to Node HTTP server, Express middleware and routes; route handlers render EJS and use Mongoose to access MongoDB. Static CSS and JavaScript are served separately.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1220"/><stop offset="1" stop-color="#152c3c"/></linearGradient><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 9 3 0 6Z" fill="#5eead4"/></marker></defs>
+<rect width="1100" height="560" rx="22" fill="url(#bg)"/>
+<text x="48" y="54" fill="#f8fafc" font-family="Arial" font-size="28" font-weight="700">ATLAS • CURRENT SYSTEM BOUNDARIES</text>
+<g font-family="Arial" text-anchor="middle">
+<rect x="45" y="220" width="175" height="95" rx="14" fill="#1e3a8a" stroke="#93c5fd"/><text x="132" y="258" fill="white" font-size="19" font-weight="700">Browser</text><text x="132" y="284" fill="#dbeafe" font-size="14">Forms + HTML</text>
+<rect x="295" y="220" width="175" height="95" rx="14" fill="#115e59" stroke="#5eead4"/><text x="382" y="258" fill="white" font-size="19" font-weight="700">Node HTTP</text><text x="382" y="284" fill="#ccfbf1" font-size="14">bin/www</text>
+<rect x="545" y="220" width="190" height="95" rx="14" fill="#164e63" stroke="#67e8f9"/><text x="640" y="258" fill="white" font-size="19" font-weight="700">Express</text><text x="640" y="284" fill="#cffafe" font-size="14">app.js + middleware</text>
+<rect x="820" y="105" width="230" height="95" rx="14" fill="#4c1d95" stroke="#c4b5fd"/><text x="935" y="142" fill="white" font-size="19" font-weight="700">EJS Views</text><text x="935" y="168" fill="#ede9fe" font-size="14">views/*.ejs</text>
+<rect x="820" y="330" width="230" height="95" rx="14" fill="#854d0e" stroke="#fde68a"/><text x="935" y="368" fill="white" font-size="19" font-weight="700">Mongoose</text><text x="935" y="394" fill="#fef3c7" font-size="14">Model + query</text>
+<rect x="820" y="455" width="230" height="75" rx="14" fill="#166534" stroke="#86efac"/><text x="935" y="487" fill="white" font-size="19" font-weight="700">MongoDB</text><text x="935" y="510" fill="#dcfce7" font-size="13">Account records</text>
+<rect x="540" y="420" width="195" height="80" rx="14" fill="#334155" stroke="#cbd5e1"/><text x="637" y="453" fill="white" font-size="18" font-weight="700">Static assets</text><text x="637" y="478" fill="#e2e8f0" font-size="14">public/ CSS + JS</text>
+</g>
+<g stroke="#5eead4" stroke-width="3" fill="none" marker-end="url(#a)">
+<path d="M220 267H295"/><path d="M470 267H545"/><path d="M735 240 820 160"/><path d="M735 285 820 370"/><path d="M935 425V455"/><path d="M640 315V420"/>
+</g>
+<g fill="#cbd5e1" font-family="Arial" font-size="13"><text x="245" y="250">HTTP</text><text x="485" y="250">request</text><text x="770" y="190">render</text><text x="770" y="316">data</text><text x="653" y="370">static</text></g>
+<text x="50" y="525" fill="#fca5a5" font-family="Arial" font-size="14">Security note: current authentication is incomplete and a database credential was committed in source.</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="330" viewBox="0 0 1080 330" role="img" aria-labelledby="t d">
+<title id="t">Atlas HTTP request lifecycle</title><desc id="d">A request moves from browser through the Node HTTP server, Express middleware, route handler, EJS or Mongoose, then returns an HTML response.</desc>
+<rect width="1080" height="330" rx="22" fill="#0b1220"/>
+<text x="42" y="48" fill="#f8fafc" font-family="Arial" font-size="26" font-weight="700">HTTP REQUEST LIFECYCLE</text>
+<g font-family="Arial" text-anchor="middle">
+<g><rect x="30" y="116" width="150" height="95" rx="12" fill="#1e3a8a" stroke="#93c5fd"/><text x="105" y="154" fill="white" font-size="17" font-weight="700">Browser</text><text x="105" y="181" fill="#dbeafe" font-size="13">HTTP</text></g>
+<g><rect x="220" y="116" width="150" height="95" rx="12" fill="#115e59" stroke="#5eead4"/><text x="295" y="154" fill="white" font-size="17" font-weight="700">bin/www</text><text x="295" y="181" fill="#ccfbf1" font-size="13">HTTP server</text></g>
+<g><rect x="410" y="116" width="150" height="95" rx="12" fill="#164e63" stroke="#67e8f9"/><text x="485" y="154" fill="white" font-size="17" font-weight="700">Middleware</text><text x="485" y="181" fill="#cffafe" font-size="13">app.js</text></g>
+<g><rect x="600" y="116" width="150" height="95" rx="12" fill="#4c1d95" stroke="#c4b5fd"/><text x="675" y="154" fill="white" font-size="17" font-weight="700">Router</text><text x="675" y="181" fill="#ede9fe" font-size="13">index.js</text></g>
+<g><rect x="790" y="65" width="250" height="70" rx="12" fill="#854d0e" stroke="#fde68a"/><text x="915" y="95" fill="white" font-size="17" font-weight="700">EJS render</text><text x="915" y="117" fill="#fef3c7" font-size="13">HTML response</text></g>
+<g><rect x="790" y="190" width="250" height="70" rx="12" fill="#166534" stroke="#86efac"/><text x="915" y="220" fill="white" font-size="17" font-weight="700">Mongoose / MongoDB</text><text x="915" y="242" fill="#dcfce7" font-size="13">Account read/write</text></g>
+</g>
+<g stroke="#5eead4" stroke-width="3" fill="none"><path d="M180 163H220"/><path d="M370 163H410"/><path d="M560 163H600"/><path d="M750 147 790 111"/><path d="M750 179 790 223"/></g>
+<g fill="#cbd5e1" font-family="Arial" font-size="13"><text x="190" y="146">1</text><text x="380" y="146">2</text><text x="570" y="146">3</text><text x="768" y="96">4a</text><text x="768" y="240">4b</text></g>
+</svg>

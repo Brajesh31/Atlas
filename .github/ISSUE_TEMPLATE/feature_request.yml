@@ -1,0 +1,30 @@
+name: 💡 Feature request
+description: Propose a user-focused Atlas improvement.
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: "Describe the problem and value. Security-sensitive account features require a threat model and test plan."
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: What user or maintainer problem exists?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: textarea
+    id: security
+    attributes:
+      label: Security, privacy, and data implications
+      description: Mention input, identity, session, database, and retention impacts where relevant.

@@ -1,18 +1,37 @@
-# Security Policy
+# 🔐 Security policy
 
-## Important prototype warning
+## Critical existing warning
+Atlas currently has a database URI containing credentials in tracked source, stores raw passwords, does not create a durable authenticated session, and leaves /home publicly accessible. Do not deploy this version publicly or use real account credentials.
 
-Atlas currently stores passwords in plaintext, compares them directly, does not establish an authenticated session, and connects to MongoDB from `routes/index.js`. Do not use this application with real credentials or production data.
+The committed MongoDB credential must be rotated/revoked immediately. Removing the string from the current file does not invalidate it. Consider Git history cleanup after rotation and coordinate with collaborators.
 
-Before any deployment, contributors should add password hashing, input validation, rate limiting, secure session management, authorization checks, CSRF protection, secure cookies, TLS, secret management, and least-privilege database access.
+## Reporting
+Use GitHub private vulnerability reporting for this repository when enabled. Otherwise contact the maintainer privately through <https://github.com/Brajesh31>. Do not disclose details in a public issue.
 
-## Reporting a vulnerability
+Include:
+- Affected file/route and commit SHA.
+- Reproduction steps using synthetic data.
+- Realistic impact and prerequisites.
+- Safe evidence with all secrets removed.
+- Suggested mitigation, if known.
 
-Please do not open a public issue for a suspected vulnerability. Contact Brajesh Kumar privately through the maintainer’s GitHub profile at <https://github.com/brajesh31> and include:
+Do not access other users' data or perform destructive tests against third-party services.
 
-- A short description and affected route or file.
-- Reproduction steps or a minimal proof of concept.
-- Potential impact.
-- Any suggested mitigation.
+## Response
+Maintainers should acknowledge reports, assess impact, coordinate a remediation, and communicate resolution when appropriate. No response-time SLA is currently defined.
 
-Please allow reasonable time for investigation and remediation. Do not include real credentials or personal data in a report.
+## Required controls before public deployment
+- Rotate the exposed MongoDB credential.
+- Move secret configuration outside source control.
+- Hash passwords and verify hashes safely.
+- Implement session creation, expiry, rotation, and logout.
+- Protect private routes with authorization middleware.
+- Add server-side input validation and unique indexes.
+- Add CSRF protection and authentication rate limits.
+- Configure secure cookies and TLS.
+- Add security headers and request body limits.
+- Add safe error handling and tests.
+- Restrict MongoDB network and user permissions.
+
+## Supported versions
+The repository does not maintain a formal support matrix. Report against the latest default-branch commit and include runtime details.
