@@ -431,3 +431,5 @@ See [ROADMAP.md](ROADMAP.md). Planned work is not current functionality.
 Atlas is released under the MIT License. See [LICENSE](LICENSE). Third-party packages, fonts, images, and remote resources remain subject to their respective licenses and terms.
 
 <p align="center"><sub>README reflects the inspected source and calls out known gaps. Last reviewed: 2026-11-16.</sub></p>
+
+Last updated: 2026-11-16 17:00 UTC
