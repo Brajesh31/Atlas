@@ -436,4 +436,4 @@ Atlas is released under the MIT License. See [LICENSE](LICENSE). Third-party pac
 
 <p align="center"><sub>README reflects the inspected source and calls out known gaps. Last reviewed: 2026-11-16.</sub></p>
 
-Last updated: 2026-11-19 18:47 UTC
+Last updated: 2026-11-20 00:59 UTC
